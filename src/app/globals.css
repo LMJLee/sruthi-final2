@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.gallery-image {
+	width: 100%;
+
+	@media only screen and (max-width: 1920px) {
+		width: 350px;
+		height: auto;
+	}
+
+	@media only screen and (max-width: 1200px) {
+		width: 250px;
+		height: auto;
+	}
+}
+
+.contact-image {
+	@media only screen and (max-width: 1070px) {
+		width: 0px;
+	}
+}
