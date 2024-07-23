@@ -10,7 +10,7 @@ import Navbar from "./components/navbar";
 import Home from "./components/home";
 import Contact from "./components/contact";
 import About from "./components/about";
-import Gallery from "./admin";
+import Gallery from "./components/gallery";
 
 import { Metadata } from "next";
 import Link from "next/link";

@@ -4,11 +4,12 @@ import { signOut, useSession } from "next-auth/react";
 import { redirect } from "next/navigation";
 import { v4 } from "uuid";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { addDoc, collection, getDocs } from "firebase/firestore";
+import { addDoc, collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { imgDB, txtDB } from "@/app/firebase";
 import { SelectedPage, ClassType } from "../shared/types";
 
 import Class from "./Class";
+import { idText } from "typescript";
 
 interface DataType {
 	id: string;
@@ -65,6 +66,13 @@ function Admin() {
 		setImg("");
 	};
 
+	const handleDelete = async (id: string) => {
+		const deleteVal = doc(txtDB, "txtData", id);
+		await deleteDoc(deleteVal);
+		alert("Data deleted successfully!");
+		getData();
+	};
+
 	return (
 		<>
 			<div className="bg-white mx-auto display-flex h-[400px] ">
@@ -85,7 +93,10 @@ function Admin() {
 			<div className=" mt-10 h-full w-full overflow-x-auto overflow-y-hidden" style={{ display: "grid", gridGap: "14px", gridTemplateColumns: "repeat(auto-fit, minmax(400px, auto))" }}>
 				<ul className=" px-40 w-full whitespace-wrap">
 					{data.map(item => (
-						<Class key={`${item.id}`} name={item.txtVal} image={item.imgUrl} />
+						<div key={item.id}>
+							<Class name={item.txtVal} image={item.imgUrl} />
+							<button onClick={() => handleDelete(item.id)}>Delete</button>
+						</div>
 					))}
 				</ul>
 			</div>
