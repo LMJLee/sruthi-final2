@@ -6,12 +6,19 @@ import { v4 } from "uuid";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { addDoc, collection, getDocs } from "firebase/firestore";
 import { imgDB, txtDB } from "@/app/firebase";
+import { SelectedPage, ClassType } from "../shared/types";
+
+import Class from "./Class";
 
 interface DataType {
 	id: string;
 	txtVal: string;
 	imgUrl: string;
 }
+
+type Props = {
+	setSelectedPage: (value: SelectedPage) => void;
+};
 
 function Admin() {
 	const session = useSession({
@@ -24,6 +31,20 @@ function Admin() {
 	const [txt, setTxt] = useState("");
 	const [img, setImg] = useState("");
 	const [data, setData] = useState<DataType[]>([]);
+
+	const getData = async () => {
+		const valRef = collection(txtDB, "txtData"); // Ensure the collection name matches what was used in handleClick
+		const dataDb = await getDocs(valRef);
+		const allData = dataDb.docs.map(val => ({ ...val.data(), id: val.id }));
+		setData(allData);
+		console.log(dataDb);
+	};
+
+	useEffect(() => {
+		getData();
+	}, []);
+
+	console.log(data, "datadata");
 
 	const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
 		console.log(e.target.files![0]);
@@ -46,7 +67,7 @@ function Admin() {
 
 	return (
 		<>
-			<div className="mx-auto h-[400px] px-100">
+			<div className="bg-white mx-auto display-flex h-[400px] ">
 				<input value={txt} onChange={e => setTxt(e.target.value)} />
 				<br />
 				<input type="file" onChange={e => handleUpload(e)} />
@@ -59,6 +80,14 @@ function Admin() {
 						Logout
 					</button>
 				</div>
+			</div>
+
+			<div className=" mt-10 h-full w-full overflow-x-auto overflow-y-hidden" style={{ display: "grid", gridGap: "14px", gridTemplateColumns: "repeat(auto-fit, minmax(400px, auto))" }}>
+				<ul className=" px-40 w-full whitespace-wrap">
+					{data.map(item => (
+						<Class key={`${item.id}`} name={item.txtVal} image={item.imgUrl} />
+					))}
+				</ul>
 			</div>
 		</>
 	);

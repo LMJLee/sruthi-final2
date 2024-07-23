@@ -10,9 +10,11 @@ import Navbar from "./components/navbar";
 import Home from "./components/home";
 import Contact from "./components/contact";
 import About from "./components/about";
-import Gallery from "./components/gallery";
-import Admin from "./components/admin/page";
+import Gallery from "./admin";
+
 import { Metadata } from "next";
+import Link from "next/link";
+import Admin from "./admin/page";
 
 // export const metadata = {
 // 	title: "Knotique Creations]"
@@ -41,9 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 			<body>
 				<SessionProvider>
 					<BrowserRouter>
-						<Routes>
-							<Route path="/admin" element={<Admin />} />
-						</Routes>
+						{/* <Link href="/admin">Admin</Link> */}
 
 						<Navbar isTopOfPage={isTopOfPage} selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
 						<Home setSelectedPage={setSelectedPage} />

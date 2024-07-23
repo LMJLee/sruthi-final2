@@ -1,7 +1,7 @@
 "use client";
-import { SelectedPage, ClassType } from "../../shared/types";
+import { SelectedPage, ClassType } from "../shared/types";
 import { motion } from "framer-motion";
-import HText from "../../shared/HText";
+import HText from "../shared/HText";
 import React, { useEffect, useState } from "react";
 import { txtDB } from "@/app/firebase";
 import { collection, getDocs } from "firebase/firestore";
