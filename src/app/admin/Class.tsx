@@ -7,7 +7,7 @@ type Props = {
 };
 
 const Class = ({ name, description, image }: Props) => {
-	const overlayStyles = ` `;
+	const overlayStyles = ` py-5`;
 
 	return (
 		<li className="relative mx-5 inline-block image-shrink">

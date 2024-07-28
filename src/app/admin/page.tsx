@@ -64,6 +64,7 @@ function Admin() {
 		alert("Data added successfully!");
 		setTxt("");
 		setImg("");
+		getData();
 	};
 
 	const handleDelete = async (id: string) => {
@@ -90,13 +91,19 @@ function Admin() {
 				</div>
 			</div>
 
-			<div className=" mt-10 h-full w-full overflow-x-auto overflow-y-hidden" style={{ display: "grid", gridGap: "14px", gridTemplateColumns: "repeat(auto-fit, minmax(400px, auto))" }}>
-				<ul className=" px-40 w-full whitespace-wrap">
+			<div className=" py-5  mt-10 h-full w-full overflow-x-auto overflow-y-hidden" style={{ display: "grid", gridGap: "14px", gridTemplateColumns: "repeat(600px 600px)" }}>
+				<ul className=" px-40 w-full   whitespace-wrap">
 					{data.map(item => (
-						<div key={item.id}>
-							<Class name={item.txtVal} image={item.imgUrl} />
-							<button onClick={() => handleDelete(item.id)}>Delete</button>
-						</div>
+						<>
+							<div className=" border-2 border-indigo-600">
+								<Class key={`${item.id}`} name={item.txtVal} image={item.imgUrl} />
+								<div className="px-5 py-5">
+									<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleDelete(item.id)}>
+										Delete
+									</button>
+								</div>
+							</div>
+						</>
 					))}
 				</ul>
 			</div>

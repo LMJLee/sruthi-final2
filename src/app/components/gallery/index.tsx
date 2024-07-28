@@ -62,7 +62,7 @@ const Gallery = ({ setSelectedPage }: Props) => {
 				</motion.div>
 				<motion.div
 					className=" mt-10 h-full w-full overflow-x-auto overflow-y-hidden"
-					style={{ display: "grid", gridGap: "14px", gridTemplateColumns: "repeat(auto-fit, minmax(400px, auto))" }}
+					style={{ display: "grid", gridGap: "14px", gridTemplateColumns: "repeat(auto-fit, minmax(1000px, auto))" }}
 					initial="hidden"
 					whileInView="visible"
 					viewport={{ once: true, amount: 0.5 }}
