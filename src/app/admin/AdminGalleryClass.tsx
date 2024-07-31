@@ -6,7 +6,7 @@ type Props = {
 	image: string;
 };
 
-const Class = ({ name, description, image }: Props) => {
+const AdminGalleryClass = ({ name, description, image }: Props) => {
 	const overlayStyles = ` py-5`;
 
 	return (
@@ -19,4 +19,4 @@ const Class = ({ name, description, image }: Props) => {
 	);
 };
 
-export default Class;
+export default AdminGalleryClass;

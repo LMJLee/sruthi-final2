@@ -8,8 +8,8 @@ import { addDoc, collection, getDocs, deleteDoc, doc } from "firebase/firestore"
 import { imgDB, txtDB } from "@/app/firebase";
 import { SelectedPage, ClassType } from "../shared/types";
 
-import Class from "./Class";
 import { idText } from "typescript";
+import AdminGalleryClass from "./AdminGalleryClass";
 
 interface DataType {
 	id: string;
@@ -31,7 +31,7 @@ function Admin() {
 
 	const [txt, setTxt] = useState("");
 	const [img, setImg] = useState("");
-	const [data, setData] = useState<DataType[]>([]);
+	const [MixedData, setData] = useState<DataType[]>([]);
 
 	const getData = async () => {
 		const valRef = collection(txtDB, "txtData"); // Ensure the collection name matches what was used in handleClick
@@ -45,7 +45,7 @@ function Admin() {
 		getData();
 	}, []);
 
-	console.log(data, "datadata");
+	console.log(MixedData, "datadata");
 
 	const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
 		console.log(e.target.files![0]);
@@ -91,13 +91,13 @@ function Admin() {
 				</div>
 			</div>
 
-			<div className=" py-5  mt-10 h-full w-full overflow-x-auto overflow-y-hidden" style={{ display: "grid", gridGap: "14px", gridTemplateColumns: "repeat(600px 600px)" }}>
+			<div className=" py-5 mt-10 h-full w-full overflow-x-auto overflow-y-hidden" style={{ display: "grid", gridGap: "14px", gridTemplateColumns: "repeat(600px 600px)" }}>
 				<ul className=" px-40 w-full   whitespace-wrap">
-					{data.map(item => (
+					{MixedData.map(item => (
 						<>
 							<div className=" border-2 border-indigo-600">
-								<Class key={`${item.id}`} name={item.txtVal} image={item.imgUrl} />
-								<div className="px-5 py-5">
+								<AdminGalleryClass key={`${item.id}`} name={item.txtVal} image={item.imgUrl} />
+								<div className="p-5">
 									<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={() => handleDelete(item.id)}>
 										Delete
 									</button>
