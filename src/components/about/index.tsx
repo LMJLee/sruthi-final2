@@ -1,8 +1,9 @@
-import { SelectedPage } from "../../shared/types";
 import { motion } from "framer-motion";
-import HText from "../../shared/HText";
-import AboutRef from "../../assets/aboutref.jpg";
+
+import AboutRef from "@/app/assets/aboutref.jpg";
 import Image from "next/image";
+import { SelectedPage } from "@/app/shared/types";
+import HText from "@/app/shared/HText";
 
 const container = {
 	hidden: {},

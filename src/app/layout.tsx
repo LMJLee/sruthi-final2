@@ -5,16 +5,16 @@ import SessionProvider from "./SessionProvider";
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { SelectedPage } from "./shared/types";
-import Footer from "./components/footer";
-import Navbar from "./components/navbar";
-import Home from "./components/home";
-import Contact from "./components/contact";
-import About from "./components/about";
-import Gallery from "./components/gallery";
-
 import { Metadata } from "next";
 import Link from "next/link";
 import Admin from "./admin/page";
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
+import Home from "@/components/home";
+import Contact from "@/components/contact";
+import About from "@/components/about/About";
+import Gallery from "@/components/gallery";
+import Abouts from "@/components/about";
 
 // export const metadata = {
 // 	title: "Knotique Creations]"
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 						<Navbar isTopOfPage={isTopOfPage} selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
 						<Home setSelectedPage={setSelectedPage} />
 						<Gallery setSelectedPage={setSelectedPage} />
-						<About setSelectedPage={setSelectedPage} />
+						<Abouts setSelectedPage={setSelectedPage} />
 						<Contact setSelectedPage={setSelectedPage} />
 					</BrowserRouter>
 

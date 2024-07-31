@@ -1,11 +1,13 @@
 "use client";
-import { SelectedPage, ClassType } from "../../shared/types";
+
 import { motion } from "framer-motion";
-import HText from "../../shared/HText";
+
 import React, { useEffect, useState } from "react";
 import { txtDB } from "@/app/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import Class from "./Class";
+import HText from "@/app/shared/HText";
+import { SelectedPage, ClassType } from "@/app/shared/types";
 
 interface DataType {
 	id: string;
@@ -65,7 +67,7 @@ const Gallery = ({ setSelectedPage }: Props) => {
 					style={{ display: "grid", gridGap: "14px", gridTemplateColumns: "repeat(auto-fit, minmax(1000px, auto))" }}
 					initial="hidden"
 					whileInView="visible"
-					viewport={{ once: true, amount: 0.5 }}
+					viewport={{ once: true }}
 					transition={{ duration: 0.75 }}
 					variants={{
 						hidden: { opacity: 0, x: -100 },

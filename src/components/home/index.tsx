@@ -1,10 +1,10 @@
-import useMediaQuery from "../../hooks/useMediaQuery";
-import { SelectedPage } from "../../shared/types";
-import HomePageText from "../../assets/27.jpg";
+import HomePageText from "@/app/assets/27.jpg";
 import { motion } from "framer-motion";
 import HText from "@/app/shared/HText";
 import { Metadata } from "next";
 import Image from "next/image";
+import { SelectedPage } from "@/app/shared/types";
+import useMediaQuery from "@/app/hooks/useMediaQuery";
 
 type Props = {
 	setSelectedPage: (value: SelectedPage) => void;
