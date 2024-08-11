@@ -5,12 +5,13 @@ import { Metadata } from "next";
 import Image from "next/image";
 import { SelectedPage } from "@/app/shared/types";
 import useMediaQuery from "@/app/hooks/useMediaQuery";
+import Logo from "@/app/assets/sruthilogo.jpg";
 
-type Props = {
+type PageProps = {
 	setSelectedPage: (value: SelectedPage) => void;
 };
 
-const Home = ({ setSelectedPage }: Props) => {
+const Home = ({ setSelectedPage }: PageProps) => {
 	const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
 	return (
 		<section id="home" className="gap-16 bg-primary-100 py-10 md:h-full md:pb-0">
@@ -40,7 +41,7 @@ const Home = ({ setSelectedPage }: Props) => {
 
 						<div className="relative">
 							<div className="py-10 before:absolute before:-top-20 before:-left-20 before:z-[-1] ">
-								<Image alt="home-page-text" height={600} width={600} src={HomePageText.src} className="home-image" />
+								<Image alt="home-page-text" height={450} width={450} src={Logo.src} className="home-image" />
 							</div>
 						</div>
 					</motion.div>

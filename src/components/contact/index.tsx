@@ -1,15 +1,15 @@
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
-import image5 from "@/app /assets/5updated.jpg";
+import image5 from "@/app/assets/5updated.jpg";
 import Image from "next/image";
 import { SelectedPage } from "@/app/shared/types";
 import HText from "@/app/shared/HText";
 
-type Props = {
+type PageProps = {
 	setSelectedPage: (value: SelectedPage) => void;
 };
 
-const Contact = ({ setSelectedPage }: Props) => {
+const Contact = ({ setSelectedPage }: PageProps) => {
 	const inputStyles = `mb-5 w-full rounded-lg bg-primary-100 px-5 py-3 placeholder-black `;
 
 	const {

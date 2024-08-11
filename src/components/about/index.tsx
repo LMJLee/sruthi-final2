@@ -2,8 +2,9 @@ import { motion } from "framer-motion";
 
 import AboutRef from "@/app/assets/aboutref.jpg";
 import Image from "next/image";
-import { SelectedPage } from "@/app/shared/types";
+
 import HText from "@/app/shared/HText";
+import { SelectedPage } from "@/app/shared/types";
 
 const container = {
 	hidden: {},
@@ -12,11 +13,11 @@ const container = {
 	}
 };
 
-type Props = {
+type PageProps = {
 	setSelectedPage: (value: SelectedPage) => void;
 };
 
-const Abouts = ({ setSelectedPage }: Props) => {
+const About = ({ setSelectedPage }: PageProps) => {
 	return (
 		<section id="about" className="mx-auto bg-primary-100 w-full md:h-full md:pb-0 py-20 ">
 			<motion.div onViewportEnter={() => setSelectedPage(SelectedPage.About)}>
@@ -75,4 +76,4 @@ const Abouts = ({ setSelectedPage }: Props) => {
 	);
 };
 
-export default Abouts;
+export default About;

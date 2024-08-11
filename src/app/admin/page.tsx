@@ -5,10 +5,9 @@ import { redirect } from "next/navigation";
 import { v4 } from "uuid";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { addDoc, collection, getDocs, deleteDoc, doc } from "firebase/firestore";
-import { imgDB, txtDB } from "@/app/firebase";
+import { imgDB, txtDB } from "@/firebase";
 import { SelectedPage, ClassType } from "../shared/types";
 
-import { idText } from "typescript";
 import AdminGalleryClass from "./AdminGalleryClass";
 
 interface DataType {
@@ -16,10 +15,6 @@ interface DataType {
 	txtVal: string;
 	imgUrl: string;
 }
-
-type Props = {
-	setSelectedPage: (value: SelectedPage) => void;
-};
 
 function Admin() {
 	const session = useSession({
@@ -31,21 +26,20 @@ function Admin() {
 
 	const [txt, setTxt] = useState("");
 	const [img, setImg] = useState("");
-	const [MixedData, setData] = useState<DataType[]>([]);
+	const [GalleryData, setData] = useState<DataType[]>([]);
 
 	const getData = async () => {
 		const valRef = collection(txtDB, "txtData"); // Ensure the collection name matches what was used in handleClick
 		const dataDb = await getDocs(valRef);
-		const allData = dataDb.docs.map(val => ({ ...val.data(), id: val.id }));
+		const allData = dataDb.docs.map(val => ({ ...val.data(), id: val.id })) as DataType[];
 		setData(allData);
-		console.log(dataDb);
 	};
 
 	useEffect(() => {
 		getData();
 	}, []);
 
-	console.log(MixedData, "datadata");
+	console.log(GalleryData, "datadata");
 
 	const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
 		console.log(e.target.files![0]);
@@ -75,26 +69,39 @@ function Admin() {
 	};
 
 	return (
-		<>
-			<div className="bg-white mx-auto display-flex h-[400px] ">
-				<input value={txt} onChange={e => setTxt(e.target.value)} />
-				<br />
-				<input type="file" onChange={e => handleUpload(e)} />
-				<br />
-				<button onClick={handleClick}>Add</button>
+		<section>
+			<div className=" admin  ">
+				<div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+					<label className="block text-gray-700 text-sm font-bold mb-2">Caption</label>
+					<input
+						className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+						placeholder="Caption"
+						value={txt}
+						onChange={e => setTxt(e.target.value)}
+					/>
+					<div className="py-3">
+						<p className="text-red-500 text-xs italic">Choose file to upload!</p>
+					</div>
+					<div className="py-3">
+						<input type="file" onChange={e => handleUpload(e)} />
+					</div>
 
-				<div className="p-8">
-					<div className="text-black">{session?.data?.user?.email}</div>
-					<button className="text-black" onClick={() => signOut()}>
+					<div className="flex items-center justify-between">
+						<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={handleClick}>
+							Add
+						</button>
+					</div>
+
+					<div className="text-black py-2">{session?.data?.user?.email}</div>
+					<button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onClick={() => signOut()}>
 						Logout
 					</button>
 				</div>
 			</div>
-
-			<div className=" py-5 mt-10 h-full w-full overflow-x-auto overflow-y-hidden" style={{ display: "grid", gridGap: "14px", gridTemplateColumns: "repeat(600px 600px)" }}>
-				<ul className=" px-40 w-full   whitespace-wrap">
-					{MixedData.map(item => (
-						<>
+			<div className="admin">
+				<div className=" py-5 mt-10   overflow-x-auto overflow-y-hidden" style={{ display: "grid", gridGap: "14px", gridTemplateColumns: "repeat(600px 600px)" }}>
+					<ul className=" px-40     whitespace-wrap">
+						{GalleryData.map(item => (
 							<div className=" border-2 border-indigo-600">
 								<AdminGalleryClass key={`${item.id}`} name={item.txtVal} image={item.imgUrl} />
 								<div className="p-5">
@@ -103,11 +110,11 @@ function Admin() {
 									</button>
 								</div>
 							</div>
-						</>
-					))}
-				</ul>
+						))}
+					</ul>
+				</div>
 			</div>
-		</>
+		</section>
 	);
 }
 

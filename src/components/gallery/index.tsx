@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 
 import React, { useEffect, useState } from "react";
-import { txtDB } from "@/app/firebase";
+import { txtDB } from "@/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import Class from "./Class";
 import HText from "@/app/shared/HText";
@@ -15,28 +15,29 @@ interface DataType {
 	imgUrl: string;
 }
 
-type Props = {
+interface GalleryProps {
 	setSelectedPage: (value: SelectedPage) => void;
-};
+}
 
-const Gallery = ({ setSelectedPage }: Props) => {
+const Gallery = ({ setSelectedPage }: GalleryProps) => {
 	const [txt, setTxt] = useState("");
 	const [img, setImg] = useState("");
-	const [data, setData] = useState<DataType[]>([]);
+	const [GalleryData, setData] = useState<DataType[]>([]);
 
 	const getData = async () => {
 		const valRef = collection(txtDB, "txtData"); // Ensure the collection name matches what was used in handleClick
 		const dataDb = await getDocs(valRef);
-		const allData = dataDb.docs.map(val => ({ ...val.data(), id: val.id }));
+		const allData = dataDb.docs.map(val => ({ ...val.data(), id: val.id })) as DataType[];
 		setData(allData);
 		console.log(dataDb);
+		console.log(allData, "Jerome");
 	};
 
 	useEffect(() => {
 		getData();
 	}, []);
 
-	console.log(data, "datadata");
+	console.log(GalleryData, "datadata");
 
 	return (
 		<section id="gallery" className="w-full bg-white py-40">
@@ -75,8 +76,8 @@ const Gallery = ({ setSelectedPage }: Props) => {
 					}}
 				>
 					<ul className=" px-40 w-full whitespace-wrap">
-						{data.map(item => (
-							<Class key={`${item.id}`} name={item.txtVal} image={item.imgUrl} />
+						{GalleryData.map(item => (
+							<Class key={item.id} name={item.txtVal} image={item.imgUrl} />
 						))}
 					</ul>
 				</motion.div>

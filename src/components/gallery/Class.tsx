@@ -1,12 +1,12 @@
 import Image from "next/image";
 
-type Props = {
+type DataProps = {
 	name: string;
 	description?: string;
 	image: string;
 };
 
-const Class = ({ name, description, image }: Props) => {
+const Class = ({ name, description, image }: DataProps) => {
 	const overlayStyles = `p-5 absolute z-30 flex
 gallery-image flex-col items-center justify-center
 whitespace-normal bg-primary-500 text-center text-white

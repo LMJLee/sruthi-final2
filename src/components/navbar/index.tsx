@@ -2,15 +2,16 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 
 import Link from "./Link";
 
-import { useState } from "react";
-import ActionButton from "@/app/shared/ActionButton";
+import { Dispatch, SetStateAction, useState } from "react";
 import { SelectedPage } from "@/app/shared/types";
 import useMediaQuery from "@/app/hooks/useMediaQuery";
+import Logo from "@/app/assets/sruthilogo.jpg";
+import Image from "next/image";
 
 type Props = {
 	isTopOfPage: boolean;
 	selectedPage: SelectedPage;
-	setSelectedPage: (value: string) => void;
+	setSelectedPage: Dispatch<SetStateAction<SelectedPage>>;
 };
 
 const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
@@ -23,6 +24,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
 			<div className={`${navbarBackground} ${flexBetween} fixed top-0 z-30 w-full py-6`}>
 				<div className={`${flexBetween} mx-auto w-5/6`}>
 					<div className={`${flexBetween} w-full gap-16`}>
+						<Image alt="home-page-text" height={50} width={50} src={Logo.src} className="home-image" />
 						{/* RIGHT SIDE */}
 						{isAboveMediumScreens ? (
 							<div className={`${flexBetween} w-full`}>

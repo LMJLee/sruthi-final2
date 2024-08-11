@@ -1,14 +1,19 @@
+import Logo from "@/app/assets/sruthilogo.jpg";
+import Image from "next/image";
+
 const Footer = () => {
 	return (
 		<footer className="bg-primary-100 py-16">
 			<div className="justify-content mx-auto w-5/6 gap-16 md:flex">
 				<div className="mt-16 basis-1/2 md:mt-0">
+					<Image alt="home-page-text" height={50} width={50} src={Logo.src} className="home-image" />
+
 					<p className="my-5">
 						Lorem ipsum lugmas asldkaslkd askd lak ladk alskdlak sldkalkd<br></br>
 						Lorem ipsum lugmas asldkaslkd askd lak ladk alskdlak sldkalkd<br></br>
 						Lorem ipsum lugmas asldkaslkd askd lak ladk alskdlak sldkalkd<br></br>
 					</p>
-					<p>© 2024, TiarabyNinu Powered by Shopify</p>
+					<p>© 2024, Knotique Creations Powered by Luke </p>
 				</div>
 
 				<div className="my-5 mt-16 basis-1/4 md:mt-0">
