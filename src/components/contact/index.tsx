@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
-import image5 from "@/app/assets/5updated.jpg";
+import image5 from "@/assets/5updated.jpg";
 import Image from "next/image";
-import { SelectedPage } from "@/app/shared/types";
-import HText from "@/app/shared/HText";
+
+import { SelectedPage } from "@/shared/types";
+import HText from "@/shared/HText";
 
 type PageProps = {
 	setSelectedPage: (value: SelectedPage) => void;
@@ -40,8 +41,7 @@ const Contact = ({ setSelectedPage }: PageProps) => {
 					}}
 				>
 					<HText>
-						GET IN
-						<span className="text-primary-300"> TOUCH</span>
+						<span className="text-primary-300">Get in touch</span>
 					</HText>
 					<p className="my-5">If you have any queries or would like to get in touch about orders or custom designs please feel free to email me.</p>
 				</motion.div>

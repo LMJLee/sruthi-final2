@@ -1,7 +1,6 @@
 "use client";
-import { signOut, useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
-import { SelectedPage } from "./shared/types";
+
+import { SelectedPage } from "@/shared/types";
 import Navbar from "@/components/navbar";
 import Contact from "@/components/contact";
 import Gallery from "@/components/gallery";

@@ -6,8 +6,9 @@ import React, { useEffect, useState } from "react";
 import { txtDB } from "@/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import Class from "./Class";
-import HText from "@/app/shared/HText";
-import { SelectedPage, ClassType } from "@/app/shared/types";
+
+import HText from "@/shared/HText";
+import { SelectedPage, ClassType } from "@/shared/types";
 
 interface DataType {
 	id: string;
@@ -53,14 +54,10 @@ const Gallery = ({ setSelectedPage }: GalleryProps) => {
 						visible: { opacity: 1, x: 0 }
 					}}
 				>
-					<div className="px-8 md:w-3/5">
+					<div className="px-8 ">
 						<HText>
-							MY<span className="text-primary-300"> GALLERY</span>
+							<span className="text-primary-300"> Gallery</span>
 						</HText>
-						<p className="py-5">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-							exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-						</p>
 					</div>
 				</motion.div>
 				<motion.div

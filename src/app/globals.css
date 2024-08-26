@@ -29,3 +29,9 @@
 	justify-content: center;
 	align-items: center;
 }
+
+.test {
+	width: 700px;
+	height: 400px; /* or any size appropriate for your design */
+	position: relative; /* Required for the Image with `fill` prop */
+}

@@ -17,7 +17,9 @@ opacity-0 transition duration-500 hover:opacity-90`;
 			<div className={overlayStyles}>
 				<p className="text-2xl">{name}</p>
 			</div>
-			<Image loader={() => image} width={400} height={600} alt={`${image}`} src={image} />
+			<div className="test" style={{ position: "relative", width: "100%", height: "100%" }}>
+				<Image loader={() => image} width={400} height={300} priority alt={`${image}`} src={image} />
+			</div>
 		</li>
 	);
 };

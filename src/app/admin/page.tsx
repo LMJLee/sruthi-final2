@@ -6,9 +6,9 @@ import { v4 } from "uuid";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { addDoc, collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { imgDB, txtDB } from "@/firebase";
-import { SelectedPage, ClassType } from "../shared/types";
 
 import AdminGalleryClass from "./AdminGalleryClass";
+import { SelectedPage, ClassType } from "@/shared/types";
 
 interface DataType {
 	id: string;
