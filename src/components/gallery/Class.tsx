@@ -1,25 +1,32 @@
 import Image from "next/image";
 
-type DataProps = {
+type Props = {
 	name: string;
 	description?: string;
 	image: string;
 };
 
-const Class = ({ name, description, image }: DataProps) => {
+const Class = ({ name, description, image }: Props) => {
 	const overlayStyles = `p-5 absolute z-30 flex
-gallery-image flex-col items-center justify-center
-whitespace-normal bg-primary-500 text-center text-white
-opacity-0 transition duration-500 hover:opacity-90`;
+  h-[80px] w-[450px] flex-col items-center justify-center
+  whitespace-normal bg-primary-500 text-center text-white
+  opacity-0 transition duration-500 hover:opacity-90`;
 
 	return (
-		<li className="relative mx-5 inline-block image-shrink">
+		<li className="relative mx-5 inline-block h-[380px] w-[450px]">
 			<div className={overlayStyles}>
 				<p className="text-2xl">{name}</p>
 			</div>
-			<div className="test" style={{ position: "relative", width: "100%", height: "100%" }}>
-				<Image loader={() => image} width={400} height={300} priority alt={`${image}`} src={image} />
-			</div>
+			<Image
+				loader={() => image}
+				fill
+				sizes="(max-width: 450px) 100vw, 700px"
+				priority
+				alt={`${name}`}
+				src={image}
+				className="ImageWrap transition-opacity opacity-0 duration-[2s]"
+				onLoadingComplete={image => image.classList.remove("opacity-0")}
+			/>
 		</li>
 	);
 };

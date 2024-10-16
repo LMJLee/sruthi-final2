@@ -22,6 +22,12 @@
 	}
 }
 
+.adbout-image {
+	@media only screen and (max-width: 1600px) {
+		width: 0px;
+	}
+}
+
 .admin {
 	height: 100%;
 	width: 100%;
@@ -34,4 +40,11 @@
 	width: 700px;
 	height: 400px; /* or any size appropriate for your design */
 	position: relative; /* Required for the Image with `fill` prop */
+}
+
+.ImageWrap {
+	position: relative;
+	width: 100%;
+	max-width: 700px;
+	aspect-ratio: 70/45;
 }

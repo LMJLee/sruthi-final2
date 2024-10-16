@@ -8,8 +8,6 @@ const Footer = () => {
 				<div className="mt-16 basis-1/2 md:mt-0">
 					<Image alt="home-page-text" height={65} width={65} src={Logo.src} className="home-image" />
 
-					<h4 className="font-bold">Socials</h4>
-
 					<div className="my-5">
 						<a href="https://www.facebook.com/sruthireddy.g.1" target="_blank">
 							<span className="  [&>svg]:h-8 [&>svg]:w-8">
@@ -36,8 +34,6 @@ const Footer = () => {
 					</p>
 					<p>© 2024, Knotique Creations Powered by Luke </p>
 				</div>
-
-				<div className="my-5 basis-1/4 md:mt-0"></div>
 			</div>
 		</footer>
 	);
