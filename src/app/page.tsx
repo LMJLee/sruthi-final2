@@ -1,22 +1,12 @@
-"use client";
-import { signOut, useSession } from "next-auth/react";
-import { redirect } from "next/navigation";
+import { GalleryImage } from "@/shared/types";
+import HomePage from "@/components/HomePage";
+import { collection, getDocs } from "firebase/firestore";
+import { txtDB } from "@/firebase";
 
-export default function Home() {
-  const session = useSession({
-    required: false,
-    onUnauthenticated() {
-      redirect("/signin");
-    },
-  });
-  return (
-    <div className="p-8">
-      <div className="text-white">{session?.data?.user?.email}</div>
-      <button className="text-white" onClick={() => signOut()}>
-        Logout
-      </button>
-    </div>
-  );
+export default async function Home() {
+	const valRef = collection(txtDB, "txtData");
+	const dataDb = await getDocs(valRef);
+	const allData = dataDb.docs.map(val => ({ ...val.data(), id: val.id })) as GalleryImage[];
+	const imageUrls = await Promise.all(allData);
+	return <HomePage images={imageUrls} />;
 }
-
-Home.requireAuth = true;
