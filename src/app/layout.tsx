@@ -12,13 +12,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
-		<html lang="en" className="h-full ">
+		<html lang="en" className="h-full">
 			<body>
 				<SessionProvider>
-					{/* <Link href="/admin">Admin</Link> */}
 					{children}
-
-					<Footer></Footer>
 				</SessionProvider>
 			</body>
 		</html>

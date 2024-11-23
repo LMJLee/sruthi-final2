@@ -13,10 +13,10 @@ const Class = ({ name, description, image }: Props) => {
   opacity-0 transition duration-500 hover:opacity-90`;
 
 	return (
-		<li className="relative mx-5 inline-block h-[380px] w-[450px]">
-			<div className={overlayStyles}>
+		<li className="relative inline-block h-[380px] w-[450px]">
+			{/* <div className={overlayStyles}>
 				<p className="text-2xl">{name}</p>
-			</div>
+			</div> */}
 			<Image
 				loader={() => image}
 				fill
@@ -24,7 +24,7 @@ const Class = ({ name, description, image }: Props) => {
 				priority
 				alt={`${name}`}
 				src={image}
-				className="ImageWrap transition-opacity opacity-0 duration-[2s]"
+				className="ImageWrap"
 				onLoadingComplete={image => image.classList.remove("opacity-0")}
 			/>
 		</li>

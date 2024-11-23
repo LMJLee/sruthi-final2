@@ -9,26 +9,23 @@ import Logo from "@/assets/sruthilogo.png";
 import Image from "next/image";
 
 type Props = {
-	isTopOfPage: boolean;
 	selectedPage: SelectedPage;
 	setSelectedPage: Dispatch<SetStateAction<SelectedPage>>;
 };
 
-const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }: Props) => {
-	const flexBetween = "flex items-center justify-between";
+const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
 	const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
 	const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
-	const navbarBackground = isTopOfPage ? "" : "bg-primary-150 drop-shadow";
 	return (
 		<nav>
-			<div className={`${navbarBackground} ${flexBetween} fixed top-0 z-30 w-full py-6`}>
-				<div className={`${flexBetween} mx-auto w-5/6`}>
-					<div className={`${flexBetween} w-full gap-16`}>
+			<div className={`bg-primary-100 flex items-center justify-between fixed top-0 z-30 w-full py-6 wrapper`}>
+				<div className={`flex items-center justify-between`}>
+					<div className={`flex items-center justify-between w-full gap-16`}>
 						<Image alt="home-page-text" height={75} width={75} src={Logo.src} className="home-image" />
 						{/* RIGHT SIDE */}
 						{isAboveMediumScreens ? (
-							<div className={`${flexBetween} w-full`}>
-								<div className={`${flexBetween} gap-8 text-sm`}>
+							<div className={`flex items-center justify-between w-full`}>
+								<div className={`flex items-center justify-between gap-8 text-sm`}>
 									<Link page="Home" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
 									<Link page="Gallery" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
 									<Link page="About" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />

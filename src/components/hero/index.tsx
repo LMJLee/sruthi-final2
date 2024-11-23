@@ -1,20 +1,16 @@
-import HomePageText from "@/app/assets/27.jpg";
 import { motion } from "framer-motion";
 
-import { Metadata } from "next";
 import Image from "next/image";
 
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Logo from "@/assets/sruthilogo.png";
 import { SelectedPage } from "@/shared/types";
-import HText from "@/shared/HText";
 
 type PageProps = {
 	setSelectedPage: (value: SelectedPage) => void;
 };
 
-const Home = ({ setSelectedPage }: PageProps) => {
-	const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
+const Hero = ({ setSelectedPage }: PageProps) => {
 	return (
 		<section id="home" className="gap-16 bg-primary-100 py-10 md:h-full md:pb-0">
 			{/* IMAGE AND MAIN HEADER */}
@@ -42,4 +38,4 @@ const Home = ({ setSelectedPage }: PageProps) => {
 	);
 };
 
-export default Home;
+export default Hero;

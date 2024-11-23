@@ -48,3 +48,11 @@
 	max-width: 700px;
 	aspect-ratio: 70/45;
 }
+
+.wrapper {
+	@apply w-full px-4 sm:px-8;
+
+	> * {
+		@apply mx-auto w-full max-w-[1580px];
+	}
+}
