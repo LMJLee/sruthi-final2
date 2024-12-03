@@ -28,7 +28,7 @@ const Contact = ({ setSelectedPage }: PageProps) => {
 	};
 
 	return (
-		<section id="contact">
+		<section id="contact" className="py-16">
 			<HomePageSection>
 				<motion.div onViewportEnter={() => setSelectedPage(SelectedPage.Contact)}>
 					{/* HEADER */}

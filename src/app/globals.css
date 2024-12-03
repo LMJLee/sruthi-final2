@@ -42,13 +42,6 @@
 	position: relative; /* Required for the Image with `fill` prop */
 }
 
-.ImageWrap {
-	position: relative;
-	width: 100%;
-	max-width: 700px;
-	aspect-ratio: 70/45;
-}
-
 .wrapper {
 	@apply w-full px-4 sm:px-8;
 

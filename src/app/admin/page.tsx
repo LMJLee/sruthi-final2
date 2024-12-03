@@ -5,15 +5,12 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../../../pages/api/auth/[...nextauth]";
 import { redirect } from "next/navigation";
 import { GalleryImage } from "@/shared/types";
+import { fetchGalleryImages } from "@/lib";
 
 export default async function AdminPage() {
 	const session = await getServerSession(authOptions);
-
 	if (!session) redirect("/signin");
-
-	const valRef = collection(txtDB, "txtData");
-	const dataDb = await getDocs(valRef);
-	const allData = dataDb.docs.map(val => ({ ...val.data(), id: val.id })) as GalleryImage[];
+	const allData = await fetchGalleryImages();
 
 	return (
 		<section>
