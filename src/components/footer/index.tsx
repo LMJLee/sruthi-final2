@@ -30,9 +30,8 @@ const Footer = () => {
 						</div>
 					</div>
 					<p className="my-5">
-						Telephone: +44123456789 <br></br>
+						Telephone: +44 12345 6789 <br></br>
 						Address: 89 Wilson Way TW8 0PN<br></br>
-						Lorem ipsum lugmas asldkaslkd askd lak ladk alskdlak sldkalkd<br></br>
 					</p>
 					<p>© 2024, Knotique Creations Powered by Luke </p>
 				</div>

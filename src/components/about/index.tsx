@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import AboutRef from "@/assets/aboutref.jpg";
 import Image from "next/image";
 
-import HText from "@/shared/HText";
 import { SelectedPage } from "@/shared/types";
 import HomePageSection from "../HomePageSection";
 
@@ -16,67 +15,40 @@ const About = ({ setSelectedPage }: PageProps) => {
 		<section id="about">
 			<HomePageSection background="bg-primary-100">
 				<motion.div onViewportEnter={() => setSelectedPage(SelectedPage.About)}>
-					{/* GRAPHICS AND DESC */}
-					<div className="flex flex-col md:flex-row items-center h-full w-full">
-						{/* PHOTO */}
-						<motion.div
-							className="md:w-1/2 w-full flex justify-center items-center"
-							initial="hidden"
-							whileInView="visible"
-							viewport={{ once: true, amount: 0.5 }}
-							transition={{ delay: 0, duration: 0.75 }}
-							variants={{
-								hidden: { opacity: 0, x: 50 },
-								visible: { opacity: 1, x: 0 }
-							}}
-						>
-							<div className=":max-w-md lg:max-w-lg w-full">
-								<Image className="" priority alt="The Creator" src={AboutRef.src} width={450} height={550} />
-							</div>
-						</motion.div>
+					<div className="flex flex-col lg:flex-row items-start gap-6 py-6">
+						{/* Image Section */}
+						<div className="relative w-full lg:w-1/3 h-auto flex justify-center lg:justify-start ">
+							<Image src={AboutRef.src} alt="Knotique Creations" width={450} height={550} className="rounded-lg shadow-lg object-cover h-full" />
+						</div>
 
-						{/* TITLE & DESCRIPTION */}
-						<div className="  px-10      flex-col   ">
-							{/* TITLE */}
-							<motion.div
-								initial="hidden"
-								whileInView="visible"
-								viewport={{ once: true, amount: 0.5 }}
-								transition={{ duration: 0.3 }}
-								variants={{
-									hidden: { opacity: 0, x: -50 },
-									visible: { opacity: 1, x: 0 }
-								}}
-							>
-								<div className="py-7  ">
-									<HText>
-										<span className="text-primary-300">My story</span>
-									</HText>
-								</div>
-							</motion.div>
+						{/* Text Section */}
+						<div className="w-full lg:w-2/3">
+							<h1 className="font-montserrat text-3xl font-bold text-primary-300 mb-4">My story</h1>
 
-							{/* DESCRIPTION */}
-							<motion.div
-								initial="hidden"
-								whileInView="visible"
-								viewport={{ once: true, amount: 0.5 }}
-								transition={{ delay: 0.2, duration: 0.5 }}
-								variants={{
-									hidden: { opacity: 0, x: 50 },
-									visible: { opacity: 1, x: 0 }
-								}}
-							>
-								<p className="pb-20">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-									exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-									pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-									<br />
-									<br />
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-									exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-									pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-								</p>
-							</motion.div>
+							<p className="text-lg mb-4">
+								Welcome to <strong>Knotique Creations!</strong>
+							</p>
+							<p className="text-lg mb-4">
+								Knotique Creations is a labor of love, founded by Sruthi, a passion that grew from childhood inspiration into a business. My journey began with hand embroidery, a skill
+								I admired while watching my mother create beautiful designs to support our family. Her talent inspired me, and soon I was crafting embroidered greeting cards for
+								friends and family.
+							</p>
+							<p className="text-lg mb-4">
+								As life moved forward, I set aside my hobby for education and work. Years later, when I was expecting my son, I discovered crochet through YouTube videos and was
+								immediately captivated. With no prior experience, I eagerly learned this new craft and soon began making booties and sweaters for my newborn. My interest in crochet
+								only grew from there, and by the time my daughter was born, I found myself creating hair accessories for her—eventually turning this passion into Knotique Creations.
+							</p>
+							<p className="text-lg mb-4">
+								At Knotique, I focus on crafting unique, high-quality crochet hair accessories with attention to detail and design. I also offer a limited selection of keychains and
+								bookmarks. Each product is handmade with care and crafted from thoughtfully chosen materials to ensure both beauty and durability.
+							</p>
+							<p className="text-lg mb-4">If you&apos;re interested in a custom-made piece, please reach out via email. I would be thrilled to create something special for you.</p>
+							<p className="text-lg mb-4">
+								Thank you for visiting, and I hope you find something here that brings you joy! Don’t forget to join our Instagram community to stay connected and see the latest
+								creations.
+							</p>
+							<p className="text-lg">Warm regards,</p>
+							<p className="text-lg font-semibold">Sruthi</p>
 						</div>
 					</div>
 				</motion.div>

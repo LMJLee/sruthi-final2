@@ -7,7 +7,7 @@ import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { addDoc, collection, getDocs, deleteDoc, doc } from "firebase/firestore";
 import { imgDB, txtDB } from "@/firebase";
 import AdminGalleryClass from "./AdminGalleryClass";
-import { revalidate } from "@/lib";
+import { revalidate } from "@/lib/actions";
 import { GalleryImage } from "@/shared/types";
 
 interface AdminProps {

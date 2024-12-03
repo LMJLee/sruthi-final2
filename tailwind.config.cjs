@@ -42,7 +42,9 @@ export default {
 		screens: {
 			xs: "480px",
 			sm: "768px",
-			md: "1060px"
+			md: "1060px",
+			lg: "1024px",
+			xl: "1525px"
 		}
 	},
 	plugins: []
