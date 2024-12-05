@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 
 import Image from "next/image";
 
-import useMediaQuery from "@/hooks/useMediaQuery";
 import Logo from "@/assets/sruthilogo.png";
 import { SelectedPage } from "@/shared/types";
 
