@@ -3,15 +3,10 @@ import { useForm } from "react-hook-form";
 import image5 from "@/assets/5updated.jpg";
 import Image from "next/image";
 
-import { SelectedPage } from "@/shared/types";
 import HText from "@/shared/HText";
 import HomePageSection from "../HomePageSection";
 
-type PageProps = {
-	setSelectedPage: (value: SelectedPage) => void;
-};
-
-const Contact = ({ setSelectedPage }: PageProps) => {
+const Contact = () => {
 	const inputStyles = `mb-5 w-full rounded-lg bg-primary-100 px-5 py-3 placeholder-black `;
 
 	const {
@@ -30,7 +25,7 @@ const Contact = ({ setSelectedPage }: PageProps) => {
 	return (
 		<section id="contact" className="py-16">
 			<HomePageSection>
-				<motion.div onViewportEnter={() => setSelectedPage(SelectedPage.Contact)}>
+				<motion.div>
 					{/* HEADER */}
 					<motion.div
 						className="md:w-3/5"

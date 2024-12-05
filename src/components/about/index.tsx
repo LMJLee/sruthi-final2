@@ -10,11 +10,11 @@ type PageProps = {
 	setSelectedPage: (value: SelectedPage) => void;
 };
 
-const About = ({ setSelectedPage }: PageProps) => {
+const About = () => {
 	return (
 		<section id="about">
 			<HomePageSection background="bg-primary-100">
-				<motion.div onViewportEnter={() => setSelectedPage(SelectedPage.About)}>
+				<motion.div>
 					<div className="flex flex-col lg:flex-row items-start gap-6 py-6">
 						{/* Image Section */}
 						<div className="relative w-full lg:w-1/3 h-auto flex justify-center lg:justify-start ">

@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 
 import Image from "next/image";
@@ -5,15 +6,11 @@ import Image from "next/image";
 import Logo from "@/assets/sruthilogo.png";
 import { SelectedPage } from "@/shared/types";
 
-type PageProps = {
-	setSelectedPage: (value: SelectedPage) => void;
-};
-
-const Hero = ({ setSelectedPage }: PageProps) => {
+const Hero = () => {
 	return (
 		<section id="home" className="gap-16 bg-primary-100 py-10 md:h-full md:pb-0">
 			{/* IMAGE AND MAIN HEADER */}
-			<motion.div className="md:flex py-20 mx-auto w-1/2 items-center justify-center md:h-5/6" onViewportEnter={() => setSelectedPage(SelectedPage.Home)}>
+			<motion.div className="md:flex py-20 mx-auto w-1/2 items-center justify-center md:h-5/6">
 				{/* MAIN HEADER */}
 				<div className="mt-52">
 					<motion.div

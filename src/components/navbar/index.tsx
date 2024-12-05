@@ -2,18 +2,12 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 
 import Link from "./Link";
 
-import { Dispatch, SetStateAction, useState } from "react";
-import { SelectedPage } from "@/shared/types";
+import { useState } from "react";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import Logo from "@/assets/sruthilogo.png";
 import Image from "next/image";
 
-type Props = {
-	selectedPage: SelectedPage;
-	setSelectedPage: Dispatch<SetStateAction<SelectedPage>>;
-};
-
-const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
+const Navbar = () => {
 	const [isMenuToggled, setIsMenuToggled] = useState<boolean>(false);
 	const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)");
 	return (
@@ -26,10 +20,10 @@ const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
 						{isAboveMediumScreens ? (
 							<div className={`flex items-center justify-between w-full`}>
 								<div className={`flex items-center justify-between gap-8 text-sm`}>
-									<Link page="Home" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
-									<Link page="Gallery" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
-									<Link page="About" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
-									<Link page="Contact" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+									<Link page="Home" />
+									<Link page="Gallery" />
+									<Link page="About" />
+									<Link page="Contact" />
 								</div>
 							</div>
 						) : (
@@ -52,10 +46,10 @@ const Navbar = ({ selectedPage, setSelectedPage }: Props) => {
 
 					{/* MENU ITEMS */}
 					<div className="ml-[33%] flex flex-col gap-10 text-2xl">
-						<Link page="Home" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
-						<Link page="Gallery" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
-						<Link page="About" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
-						<Link page="Contact" selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
+						<Link page="Home" />
+						<Link page="Gallery" />
+						<Link page="About" />
+						<Link page="Contact" />
 					</div>
 				</div>
 			)}

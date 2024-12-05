@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Image from "next/image";
 
 interface AdminGalleryClassProps {
@@ -12,7 +12,7 @@ const AdminGalleryClass = ({ name, image }: AdminGalleryClassProps) => {
 			<div className="py-5">
 				<p className="text-2xl">{name}</p>
 			</div>
-			<Image loader={() => image} width={400} height={600} alt={image} src={image} />
+			<Image loader={() => image} width={400} height={600} unoptimized={true} alt={image} src={image} />
 		</li>
 	);
 };
