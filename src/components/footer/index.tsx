@@ -6,10 +6,10 @@ const Footer = () => {
 		<footer className="bg-primary-100 py-8 wrapper ">
 			<div className="justify-content flex relative">
 				<div className="basis-1/2 mt-0">
-					<div className="flex flex-row ">
+					<div className="flex flex-row gap-3 mb-3">
 						<Image alt="home-page-text" height={65} width={65} src={Logo.src} className="home-image" />
 
-						<div className="my-5">
+						<div className="my-5 mr-[10px]">
 							<a href="https://www.facebook.com/sruthireddy.g.1" target="_blank">
 								<span className="  [&>svg]:h-8 [&>svg]:w-8">
 									<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 320 512">
@@ -29,10 +29,7 @@ const Footer = () => {
 							</a>
 						</div>
 					</div>
-					<p className="my-5">
-						Telephone: +44 12345 6789 <br></br>
-						Address: 89 Wilson Way TW8 0PN<br></br>
-					</p>
+
 					<p>© 2024, Knotique Creations Powered by Luke </p>
 				</div>
 			</div>
