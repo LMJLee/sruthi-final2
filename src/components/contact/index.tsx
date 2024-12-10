@@ -56,7 +56,7 @@ const Contact = () => {
 								visible: { opacity: 1, x: 0 }
 							}}
 						>
-							<form target="_blank" onSubmit={onSubmit} action="https://formsubmit.co/sruthigangidi@gmail.com" method="POST">
+							<form target="_blank" onSubmit={onSubmit} action="https://formsubmit.co/1715be511455efd3c79fae09f050c963" method="POST">
 								<input
 									className={inputStyles}
 									type="text"
